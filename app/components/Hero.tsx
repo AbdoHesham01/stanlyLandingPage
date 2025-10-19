@@ -94,7 +94,7 @@ export default function Hero({ onSearch }: HeroProps) {
       <div
         ref={heroRef}
         className="relative bg-cover bg-center rounded-[32px] overflow-hidden max-w-6xl mx-auto"
-        style={{ backgroundImage: "url(/hero.avif)", height: "630px" }}
+        style={{ backgroundImage: "url(/hero.avif)", height: "500px" }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <div
