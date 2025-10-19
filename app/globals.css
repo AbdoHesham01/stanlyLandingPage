@@ -2,20 +2,15 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000; /* make text black by default */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* removed nonstandard @theme inline block to avoid linter warnings */
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff; /* keep readable in dark mode but inputs will still have black borders */
   }
 }
 
@@ -23,4 +18,28 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+/* Make all inputs/textareas/selects have black borders and black text */
+input, textarea, select {
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+/* For Tailwind utility-produced inputs, add a common class override */
+.input-black-border {
+  border-color: #000000 !important;
+  color: #000000 !important;
+}
+
+/* helper classes for hero animations */
+.hero-word {
+  display: inline-block;
+  transform-origin: center bottom;
+}
+
+.hero-sub {
+  display: inline-block;
+  transform-origin: center center;
 }
