@@ -100,9 +100,7 @@ export default function Hero({ onSearch }: HeroProps) {
         className="hero-container relative bg-cover bg-center rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden max-w-7xl mx-auto"
         style={{
           backgroundImage: "url(/hero.avif)",
-          height: "calc(100vh - 180px)",
-          minHeight: "650px", // Increased min-height for mobile
-          maxHeight: "900px",
+          height: "80vh",
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>

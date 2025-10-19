@@ -49,7 +49,7 @@ export default function LoadingOverlay() {
     <div
       ref={overlayRef}
       data-loading-overlay
-      className="fixed inset-0 bg-black z-50 flex items-center justify-center"
+      className="fixed inset-0 bg-black z-[9999999] flex items-center justify-center"
       aria-hidden={!visible}
     >
       <div className="w-40 h-40 rounded-full overflow-hidden bg-white flex items-center justify-center relative shadow-lg">
