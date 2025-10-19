@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "WorldSky - Travel Landing Page",
-  description: "Refreshing exploration of Egypt - Journey beyond the ordinary adventure trip",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+  description:
+    "Refreshing exploration of Egypt - Journey beyond the ordinary adventure trip",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({

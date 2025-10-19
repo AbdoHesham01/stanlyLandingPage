@@ -90,7 +90,7 @@ export default function Hero({ onSearch }: HeroProps) {
   }, []);
 
   return (
-    <section className="w-full">
+    <section className="w-full px-4 py-6">
       <div
         ref={heroRef}
         className="relative bg-cover bg-center rounded-[32px] overflow-hidden max-w-6xl mx-auto"
