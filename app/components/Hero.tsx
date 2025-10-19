@@ -18,10 +18,14 @@ export default function Hero({ onSearch }: HeroProps) {
         gsap.set(heroRef.current, { scale: 2 });
       }
       if (headingRef.current) {
-        gsap.set(headingRef.current, { x: -120, opacity: 0 });
+        // Responsive slide distance based on screen size
+        const slideDistance = window.innerWidth < 768 ? -80 : -120;
+        gsap.set(headingRef.current, { x: slideDistance, opacity: 0 });
       }
       if (boxRef.current) {
-        gsap.set(boxRef.current, { x: 120, opacity: 0 });
+        // Responsive slide distance based on screen size
+        const slideDistance = window.innerWidth < 768 ? 80 : 120;
+        gsap.set(boxRef.current, { x: slideDistance, opacity: 0 });
       }
 
       const runAnimation = () => {
@@ -90,31 +94,43 @@ export default function Hero({ onSearch }: HeroProps) {
   }, []);
 
   return (
-    <section className="w-full px-4 py-6">
+    <section className="w-full px-2 sm:px-4 lg:px-6 py-3 sm:py-6">
       <div
         ref={heroRef}
-        className="relative bg-cover bg-center rounded-[32px] overflow-hidden max-w-6xl mx-auto"
-        style={{ backgroundImage: "url(/hero.avif)", height: "500px" }}
+        className="hero-container relative bg-cover bg-center rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden max-w-7xl mx-auto"
+        style={{
+          backgroundImage: "url(/hero.avif)",
+          height: "calc(100vh - 180px)",
+          minHeight: "650px", // Increased min-height for mobile
+          maxHeight: "900px",
+        }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
-        <div
-          ref={headingRef}
-          className="absolute left-8 top-24 text-white max-w-xl"
-        >
-          <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight">
-            {"Refreshing exploration of Egypt".split(" ").map((w, i) => (
-              <span key={i} className="hero-word inline-block mr-3">
-                {w}
-              </span>
-            ))}
-          </h1>
-          <p className="mt-4 text-lg text-white/90 hero-sub">
-            Journey beyond the ordinary adventure trip
-          </p>
-        </div>
 
-        <div className="absolute right-8 top-28" ref={boxRef}>
-          <BookingBox onSearch={onSearch} />
+        {/* Hero Content - Responsive Layout */}
+        <div className="hero-content absolute inset-0 flex flex-col lg:flex-row lg:items-center justify-start lg:justify-between p-4 sm:p-6 lg:p-8 overflow-y-auto lg:overflow-hidden">
+          <div
+            ref={headingRef}
+            className="flex-1 max-w-2xl lg:max-w-xl pt-4 sm:pt-8 lg:pt-0"
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-white">
+              {"Refreshing exploration of Egypt".split(" ").map((w, i) => (
+                <span key={i} className="hero-word inline-block mr-2 sm:mr-3">
+                  {w}
+                </span>
+              ))}
+            </h1>
+            <p className="mt-3 sm:mt-4 lg:mt-6 text-base sm:text-lg lg:text-xl text-white/90 hero-sub">
+              Journey beyond the ordinary adventure trip
+            </p>
+          </div>
+
+          <div
+            ref={boxRef}
+            className="mt-6 sm:mt-8 lg:mt-0 lg:ml-8 flex-shrink-0 w-full lg:w-auto flex justify-center lg:justify-end pb-4 lg:pb-0"
+          >
+            <BookingBox onSearch={onSearch} />
+          </div>
         </div>
 
         {/* decorative rounded cut on right */}

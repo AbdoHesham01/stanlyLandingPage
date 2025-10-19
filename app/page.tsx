@@ -12,14 +12,14 @@ export default function Home() {
   const [authMode, setAuthMode] = useState<"login" | "signup">("login");
 
   return (
-    <div className="min-h-screen overflow-hidden">
+    <div className="min-h-screen overflow-x-hidden">
       <Nav
         onOpenAuth={(mode) => {
           setAuthMode(mode || "login");
           setAuthOpen(true);
         }}
       />
-      <main>
+      <main className="overflow-x-hidden">
         <Hero onSearch={() => setSeatOpen(true)} />
       </main>
 

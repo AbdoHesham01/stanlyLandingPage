@@ -30,12 +30,12 @@ export default function BookingBox({ onSearch }: BookingProps) {
   const [infants, setInfants] = useState(1);
 
   return (
-    <div className="w-[320px] sm:w-[380px] bg-white rounded-2xl shadow-xl p-5">
-      <label className="block text-xs text-gray-500">From</label>
+    <div className="w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[400px] bg-white rounded-2xl shadow-xl p-4 sm:p-5 lg:p-6 mx-auto">
+      <label className="block text-xs text-gray-500 mb-1">From</label>
       <select
         value={from}
         onChange={(e) => setFrom(e.target.value)}
-        className="w-full border border-gray-200 rounded-md px-3 py-2 mb-3 input-black-border"
+        className="w-full border border-gray-200 rounded-md px-3 py-2 mb-3 text-sm input-black-border"
         aria-label="From location"
       >
         <option>Cairo</option>
@@ -44,11 +44,11 @@ export default function BookingBox({ onSearch }: BookingProps) {
         <option>Dubai</option>
       </select>
 
-      <label className="block text-xs text-gray-500">To</label>
+      <label className="block text-xs text-gray-500 mb-1">To</label>
       <select
         value={to}
         onChange={(e) => setTo(e.target.value)}
-        className="w-full border border-gray-200 rounded-md px-3 py-2 mb-3 input-black-border"
+        className="w-full border border-gray-200 rounded-md px-3 py-2 mb-3 text-sm input-black-border"
         aria-label="To location"
       >
         <option>Alex</option>
@@ -58,38 +58,38 @@ export default function BookingBox({ onSearch }: BookingProps) {
       </select>
 
       <div className="mb-3">
-        <label className="block text-xs text-gray-500">Date</label>
-        <div className="flex gap-2">
+        <label className="block text-xs text-gray-500 mb-1">Date</label>
+        <div className="flex flex-col sm:flex-row gap-2">
           <input
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
-            className="w-1/2 border border-gray-200 rounded-md px-3 py-2 input-black-border"
+            className="flex-1 border border-gray-200 rounded-md px-3 py-2 text-sm input-black-border"
           />
           <input
             type="date"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
-            className="w-1/2 border border-gray-200 rounded-md px-3 py-2 input-black-border"
+            className="flex-1 border border-gray-200 rounded-md px-3 py-2 text-sm input-black-border"
           />
         </div>
       </div>
 
-      <div className="flex items-center justify-between mb-4">
-        <div>
-          <label className="block text-xs text-gray-500">Infants</label>
-          <div className="flex items-center gap-2 mt-1">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mb-4">
+        <div className="flex-1">
+          <label className="block text-xs text-gray-500 mb-1">Infants</label>
+          <div className="flex items-center gap-2">
             <button
-              className="w-8 h-8 rounded-full border border-black text-black"
+              className="w-8 h-8 rounded-full border border-black text-black hover:bg-gray-100 transition-colors"
               onClick={() => setInfants(Math.max(0, infants - 1))}
             >
               -
             </button>
-            <div className="w-8 text-center border-black text-black">
+            <div className="w-8 text-center border-black text-black font-medium">
               {infants}
             </div>
             <button
-              className="w-8 h-8 rounded-full border border-black text-black"
+              className="w-8 h-8 rounded-full border border-black text-black hover:bg-gray-100 transition-colors"
               onClick={() => setInfants(infants + 1)}
             >
               +
@@ -97,14 +97,12 @@ export default function BookingBox({ onSearch }: BookingProps) {
           </div>
         </div>
 
-        <div className="flex items-end">
-          <button
-            onClick={() => onSearch({ from, to, startDate, endDate, infants })}
-            className="bg-black text-white rounded-full px-6 py-3"
-          >
-            Explore
-          </button>
-        </div>
+        <button
+          onClick={() => onSearch({ from, to, startDate, endDate, infants })}
+          className="w-full sm:w-auto bg-black text-white rounded-full px-6 py-3 hover:bg-gray-800 transition-colors font-medium"
+        >
+          Explore
+        </button>
       </div>
     </div>
   );

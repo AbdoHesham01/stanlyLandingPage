@@ -56,3 +56,33 @@ input, textarea, select {
   display: inline-block;
   transform-origin: center center;
 }
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .hero-word {
+    margin-right: 0.5rem; /* Reduce spacing on mobile */
+  }
+  
+  /* Ensure hero content doesn't get clipped on mobile */
+  .hero-container {
+    min-height: 700px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Allow vertical scrolling in hero on tablet and mobile */
+  .hero-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+/* Ensure smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Prevent horizontal overflow */
+.overflow-x-hidden {
+  overflow-x: hidden;
+}

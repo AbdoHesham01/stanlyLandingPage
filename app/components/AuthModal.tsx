@@ -22,10 +22,10 @@ export default function AuthModal({
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-      <div className="relative w-full max-w-5xl bg-white rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-[520px] md:min-h-[640px]">
-        <div className="p-8 md:p-10 flex flex-col justify-center h-full overflow-auto">
+      <div className="relative w-full max-w-xs sm:max-w-md md:max-w-4xl lg:max-w-5xl bg-white rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-[400px] sm:min-h-[520px] md:min-h-[640px] max-h-[90vh]">
+        <div className="p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-center h-full overflow-auto">
           <div className="mb-4">
             <h3 className="text-2xl md:text-3xl font-semibold text-black">
               {mode === "login" ? "Login" : "Sign Up"}
@@ -54,9 +54,9 @@ export default function AuthModal({
                 placeholder="Enter Password"
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
               />
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
                 <button
-                  className="px-4 py-2 rounded-md bg-black text-white"
+                  className="w-full sm:w-auto px-6 py-3 rounded-md bg-black text-white hover:bg-gray-800 transition-colors"
                   onClick={() => {
                     alert("Logged in");
                   }}
@@ -64,7 +64,7 @@ export default function AuthModal({
                   Login
                 </button>
                 <button
-                  className="text-sm text-gray-500"
+                  className="text-sm text-gray-500 hover:text-gray-700 transition-colors text-center sm:text-right"
                   onClick={() => setMode("signup")}
                 >
                   Don&apos;t have an account? Sign Up
@@ -95,9 +95,9 @@ export default function AuthModal({
                 placeholder="Enter your Password"
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
               />
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
                 <button
-                  className="px-4 py-2 rounded-md bg-black text-white"
+                  className="w-full sm:w-auto px-6 py-3 rounded-md bg-black text-white hover:bg-gray-800 transition-colors"
                   onClick={() => {
                     alert("Signed up");
                   }}
@@ -105,7 +105,7 @@ export default function AuthModal({
                   Create account
                 </button>
                 <button
-                  className="text-sm text-gray-500"
+                  className="text-sm text-gray-500 hover:text-gray-700 transition-colors text-center sm:text-right"
                   onClick={() => setMode("login")}
                 >
                   Have an account? Login
